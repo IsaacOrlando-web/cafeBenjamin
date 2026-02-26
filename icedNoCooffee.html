@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recetas Iced No Coffee - Portal de Barista</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-4 bg-white dark:bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-slate-900 dark:text-slate-100">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-slate-900">
+<span class="material-symbols-outlined font-bold">coffee</span>
+</div>
+<h2 class="text-lg font-extrabold leading-tight tracking-tight">Portal de Barista</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Inicio</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Recetas</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Panel</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Inventario</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-semibold" href="#">Ajustes</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden lg:flex flex-col min-w-64 h-10">
+<div class="flex w-full flex-1 items-stretch rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<div class="text-slate-400 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-400 px-3" placeholder="Buscar recetas..." value=""/>
+</div>
+</label>
+<div class="bg-primary/20 p-1 rounded-full border border-primary/30">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdW8L7OpoNkaEzlbsXuhg_5cB8H9oUdVL1bbv3kK7mO--5gi-RbOTghF1RjR7dgzv8xUtOeVLa4MEfLOvtfMDLIUx7GPhvZ_Vcd30RT6Ocf1nkGGo98s5RoWp51b1HcvBU_4YP2HbJomLdVEioU2Gl7goD893vLfpmg0KCjXoaft2CFxsKkuIMHZA2OcZRC0AP1z6C3XB9DeZSrNAaRUTAFYHg-TOzF8UpYLl8LRQsp_XeS5_SUK_iQwvfbQTKWKhqz15jkHUd6TI");'></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto w-full px-6 py-8">
+<nav class="flex items-center gap-2 mb-6 text-sm font-medium">
+<a class="text-slate-400 hover:text-primary" href="#">Inicio</a>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+<a class="text-slate-400 hover:text-primary" href="#">Recetas</a>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+<span class="text-primary">Iced No Coffee</span>
+</nav>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">Iced No Coffee</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">Guías de instrucciones estandarizadas para bebidas frías sin café. Asegura medidas consistentes y presentación para cada cliente.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-slate-900 px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Añadir Nueva Receta</span>
+</button>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all flex flex-col md:flex-row">
+<div class="md:w-1/3 lg:w-1/4 h-64 md:h-auto overflow-hidden">
+<img alt="Iced Matcha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAmzDPt4LxC6obD67fBh_kR0FmK6AueXr0a_ou4aEYUEalrCld4JzunHj7ztA4eRuWtE9QrsFAupuZX6YpYc0JNz9Onrd0C9MRn9YEYkSbDYV3yRLyBE6cbAQGc5WmkP8yrJDv1UQYPpd24F_xgl_q3ci82oYzScE2EeAuukPt8STsxXCrMyO2PZLfzqTciniuMiHAo3akmlVgDdnFVDSz5uIjPPoPHYEOgff2mJB-SkZpOj1Lt3ul_zzXtDTbKHJmsaJPJZJnChc"/>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-extrabold tracking-tight">ICED MATCHA</h3>
+<span class="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-bold uppercase tracking-wider">Más Vendido</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-3">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">list_alt</span> Ingredientes Base
+                                        </p>
+<ul class="space-y-2 text-slate-600 dark:text-slate-400">
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Leche Fría (M/L/XL)</span> <span class="font-semibold text-slate-900 dark:text-slate-100">250 / 330 / 400ml</span></li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Polvo Matcha</span> <span class="font-semibold text-slate-900 dark:text-slate-100">20 / 25 / 30g</span></li>
+</ul>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">info</span> Instrucciones Especiales
+                                        </p>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed italic">"Mezclar por 5s (Botón 1) y verter sobre hielo fresco para asegurar una textura suave y sin espuma."</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-primary text-slate-900 px-5 py-2 rounded-lg font-bold text-sm">Ver Pasos</button>
+<button class="border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 px-5 py-2 rounded-lg font-bold text-sm transition-colors">Imprimir Guía</button>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all flex flex-col md:flex-row">
+<div class="md:w-1/3 lg:w-1/4 h-64 md:h-auto overflow-hidden">
+<img alt="Iced Chai Latte" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAN13yjBz4zPBB9GKc01UEiGKxhMHsR1-w1TNTGV-Q9gxOylA4oNzAGUjG9gGwQT7Ac3lPMlKz5CEkuzYKrNuZo18btraSjdlRtGHht0ZSBC3b7EeUXDwhjZYZH4YPI1qBoqXx2ZzKB1UHBFi-UQQ4IMdL3bdB71hQlOclrfDpbXPKgduy3VpAeRrW65i2DM8Ob1cHxkuIhSPbUoFA3Q-QGYHCQNx9CbbP5kdI1N2YpWsKXsGdmLhWmt4JkAVinHj693S6fH5st64"/>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-extrabold tracking-tight uppercase">Iced Chai Latte</h3>
+<span class="px-3 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 rounded-full text-xs font-bold uppercase tracking-wider">Especiado</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-3">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">list_alt</span> Ingredientes Base
+                                        </p>
+<ul class="space-y-2 text-slate-600 dark:text-slate-400">
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Concentrado de Chai</span> <span class="font-semibold text-slate-900 dark:text-slate-100">3 / 4 / 5oz</span></li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-1"><span>Leche Fría</span> <span class="font-semibold text-slate-900 dark:text-slate-100">160 / 270 / 380ml</span></li>
+</ul>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">info</span> Instrucciones Especiales
+                                        </p>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed italic">"Llenar con hielo (golpear el vaso para asentar), mezclar en jarra primero, luego verter sobre el hielo. Decorar con canela."</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-primary text-slate-900 px-5 py-2 rounded-lg font-bold text-sm">Ver Pasos</button>
+<button class="border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 px-5 py-2 rounded-lg font-bold text-sm transition-colors">Imprimir Guía</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img alt="Spritz Refresher" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk1kll-RD6lfXRBPuEG7qejS-K_ldJb-AbCVSbjI7nVcOAxDcLu7LLizDs2KWKYI54TSb7F6T84e1NLi-r81ABOQsmIh3_qpz4_JHHOIOEwn92QYtGLdN7ZUcpG-duaI7W99Sn0SKvSy7PpOV9YD1NLmbfbkGHm8BZbVU_p24bDmN3MndMDbQ7vCAFFWTy7ltZwMRoNY4F-a1ZNuleS5EC98EK6F44B5xbLyXmT_3SHE9bQ8E_SEtf1V2SWjCo1ScJzxJM1n9DZDM"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-extrabold mb-3">SPRITZ REFRESHER</h3>
+<div class="space-y-2 mb-4 text-sm">
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Hielo:</span> <span class="font-bold text-slate-900 dark:text-white">2/3 Taza</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Concentrado:</span> <span class="font-bold text-slate-900 dark:text-white">Hasta la 2da Línea</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Líquido:</span> <span class="font-bold text-slate-900 dark:text-white">Agua Gasificada</span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-xs italic text-slate-500 mb-4">
+                                    "Tapar con tapa plana y agitar de lado a lado para mezclar el gas suavemente."
+                                </div>
+<button class="w-full bg-slate-100 dark:bg-slate-800 py-2 rounded-lg font-bold text-sm hover:bg-primary transition-colors">Detalle Completo</button>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img alt="Refresher Limonada" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmos5jrgPxEz4Ets1jopf_2rivl1U7aT5UjVh3S4gD8N4V6UQzQrgyM0r6KJKAWcXHPiEsFRrxzhp0osEzJ4cSbMl1RuoTvzLF9cYxr-VTLTWhzIFQ3MFrIr0p3lX1iAouHE9XyqHFcqIlaWNZ6qgNsd0c6YcwnsWC04INpOKU1YMIe6ETa7ipqxH0RZvxgspA1TCIWIfgh1HmFzcw7xV1XoKLuq4JY80A0ZtXoPYvpJk-3AzvA47wR1q9-jkjlBpGbpzgV0L0Fus"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-extrabold mb-3 uppercase">Refresher Limonada</h3>
+<div class="space-y-2 mb-4 text-sm">
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Hielo:</span> <span class="font-bold text-slate-900 dark:text-white">2/3 Taza</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Concentrado:</span> <span class="font-bold text-slate-900 dark:text-white">Hasta la 2da Línea</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Líquido:</span> <span class="font-bold text-slate-900 dark:text-white">Base de Limonada</span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-xs italic text-slate-500 mb-4">
+                                    "Tapar con tapa plana y agitar de lado a lado vigorosamente para airear."
+                                </div>
+<button class="w-full bg-slate-100 dark:bg-slate-800 py-2 rounded-lg font-bold text-sm hover:bg-primary transition-colors">Detalle Completo</button>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all flex flex-col">
+<div class="h-48 overflow-hidden">
+<img alt="Iced Tea" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARUvFTTAgvKaIFJB7f38ekwqjAgcjy4zEF8wTbTxZvbRwBQlNH_Jz4mGLZzK5D47ueM5kOY7ZS4mGe915qCDfzRZmxcctq3iTRiclTVbwDC0ozI5IibAkpqS0KhLsNuJrczziderpu011NwHSycQYyuzQDeFKN-KzoQKWyYAq0ReYSUXwu-dVvwTKxMAjkLibh2RCXtqNO8quUd3KiGpKUFTrhyzG6cICIwQh-uKpNg7COOywUF9hnAZ2HIFWgjhdXevEHpwmxL1U"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-extrabold mb-3 uppercase">Iced Tea</h3>
+<div class="space-y-2 mb-4 text-sm">
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Hielo:</span> <span class="font-bold text-slate-900 dark:text-white">2/3 Taza</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Sabores:</span> <span class="font-bold text-slate-900 dark:text-white">3 / 4 / 5 Bombas</span>
+</div>
+<div class="flex justify-between text-slate-600 dark:text-slate-400">
+<span>Líquido:</span> <span class="font-bold text-slate-900 dark:text-white">Base de Té Helado</span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-xs italic text-slate-500 mb-4">
+                                    "Tapar con tapa plana y agitar para combinar sabores y enfriar al instante."
+                                </div>
+<button class="w-full bg-slate-100 dark:bg-slate-800 py-2 rounded-lg font-bold text-sm hover:bg-primary transition-colors">Detalle Completo</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 p-6 bg-primary/10 border border-primary/20 rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm">
+<span class="font-bold">Consejo:</span> Asegúrate siempre de que los vasos estén llenos de hielo exactamente como se especifica para mantener el perfil de sabor adecuado cuando se añaden los líquidos. Golpear el vaso ayuda a eliminar las bolsas de aire.
+                    </p>
+</div>
+</main>
+<div class="max-w-6xl w-full mx-auto px-6 lg:px-40 mb-6">
+    <a href="index.html" 
+       class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary font-medium py-2.5 px-5 rounded-xl transition-all duration-300 group border border-primary/20">
+        <span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+        <span class="text-sm font-bold">GO BACK</span>
+    </a>
+</div>
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 px-10 text-center text-slate-400 text-sm">
+<p>© 2023 Operaciones de Cafetería. Todos los derechos reservados. Solo para uso interno confidencial.</p>
+</footer>
+</div>
+</div>
+
+</body></html>

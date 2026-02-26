@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1a140e",
+                        "card-light": "#ffffff",
+                        "card-dark": "#261e15",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer components {
+            .step-badge {
+                @apply flex items-center justify-center size-8 rounded-full bg-primary text-white font-bold text-sm shrink-0;
+            }
+            .recipe-card {
+                @apply bg-card-light dark:bg-card-dark rounded-xl border border-primary/10 shadow-sm overflow-hidden mb-8 transition-all hover:shadow-md;
+            }
+            .step-container {
+                @apply flex gap-4 items-start p-4 border-b border-primary/5 last:border-0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">The Brew House</h2>
+</div>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">Inicio</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-0.5" href="#">Menú</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">Recetas</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">Nosotros</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<button class="flex items-center justify-center size-10 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-xl h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span>Exportar PDF</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4">
+<div class="layout-content-container flex flex-col max-w-[800px] w-full">
+<div class="flex items-center gap-2 mb-4">
+<a class="text-primary/60 hover:text-primary text-sm font-medium transition-colors" href="#">Home</a>
+<span class="text-primary/40 material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="text-primary/60 hover:text-primary text-sm font-medium transition-colors" href="#">Recetario</a>
+<span class="text-primary/40 material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100 text-sm font-bold">Iced Coffee Recipes</span>
+</div>
+<div class="flex flex-col gap-2 mb-10">
+<h1 class="text-slate-900 dark:text-slate-100 text-4xl font-extrabold tracking-tight">Iced Coffee Detailed Recipes</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg">Guía detallada de preparación para la categoría de cafés helados.</p>
+</div>
+<div class="flex flex-col">
+<div class="recipe-card">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/3 h-48 md:h-auto bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9aQsMkureA0Q4Z1VxMuyU5xb-n0_oEW3PVyonzmPoNE5Bf-qHp6KiRnX3P_-TFZOPl51uFTGZvBAeLV3qyCehzuRWo1Mroj737E4zzvBmFEJ7F6F_YnNZZyjDpFz8FDb5X-1TGG7nqQ2B3pn-NdHgQvtlJ3A528glC1h6_koWqyl5WheqLSjfJAaPvL2u_T4DQoV9nZmsnKI2uzBIz4enXfRzvSFa7o_bPggyxWmleHrtfu3m8uuM7-xHzmglkDlpDaswSZrYkjA");'></div>
+<div class="p-6 md:p-8 flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                            1. ICED LATTE 🥛
+                                        </h2>
+<p class="text-primary font-medium mt-1 italic">El clásico café espresso con leche fría.</p>
+</div>
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">ESTÁNDAR</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="step-badge">1</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Ice (Hielo)</p>
+<p class="text-sm text-slate-500">Llenar vaso con cubos de hielo hasta el borde.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="step-badge">2</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Espresso shots</p>
+<div class="flex gap-3 mt-1">
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">M: 2 / 130ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">L: 3 / 195ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">XL: 4 / 260ml</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="step-badge">3</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Cold Milk (Leche Fría)</p>
+<div class="flex gap-3 mt-1">
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">M: 180ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">L: 270ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">XL: 360ml</span>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-primary/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<p class="text-sm font-semibold">Topping: <span class="font-normal text-slate-600 dark:text-slate-400">☁️ 20g Crema batida + decor.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="recipe-card">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/3 h-48 md:h-auto bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCaH5TCQ15kph4FwKeqcdJfVw2TB_oBM8QDJkwzCgp1BEJ5fV_LCceMBKiwmMy2Daz2qyThZzgDpqcyOG8dkxCDHjUsmKiQTG0LVG195-QyVcTokv0iBzmC00CPUJB2Ma0OGCmKvN_QAj0HNZ1PvZPrIg47D9riIMFGsoJN5ngeEnlmUwDYWcMHcriHMLJ0yKPz0Mt0c8yj1z5lqv8PQM3qS24rFEBVDR5R4G_E7MFuIe7Gj1AltL4vV9g6ASO-vMafhd4F5i6Zb2g");'></div>
+<div class="p-6 md:p-8 flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                            2. ICED MACCHIATO 🪄
+                                        </h2>
+<p class="text-primary font-medium mt-1 italic">Café frío donde los primeros sorbos son de espresso intenso.</p>
+</div>
+<span class="px-3 py-1 bg-amber-500/10 text-amber-600 text-xs font-bold rounded-full">PREMIUM</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="step-badge">1</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Ice (Hielo)</p>
+<p class="text-sm text-slate-500">Llenar vaso con hielo sólido.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="step-badge">2</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Cold Milk (Leche Fría)</p>
+<div class="flex gap-3 mt-1">
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">M: 120ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">L: 205ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">XL: 280ml</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="step-badge">3</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Espresso shots (Verter al final)</p>
+<div class="flex gap-3 mt-1">
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">M: 3 / 195ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">L: 4 / 260ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">XL: 5 / 325ml</span>
+</div>
+</div>
+</div>
+<div class="mt-6 p-3 bg-amber-50 dark:bg-amber-900/10 rounded-lg flex items-start gap-2">
+<span class="material-symbols-outlined text-amber-600 text-sm">info</span>
+<p class="text-xs text-amber-800 dark:text-amber-400">Nota: No mezclar para mantener las capas visuales distintivas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="recipe-card">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/3 h-48 md:h-auto bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmxbV5NVKFlb6pMYvnqu2iGXW-hnZPSo2X-yMdke-Uw-a43rxDlvoBVbSnqidq8950EDXTwXQ1T8PIRA1wqsEIawTZrHzX4aLQVOQRVz1rkzjo1TtO5Tjbgpgq2Pnw-tPXNXcs4t3eeJYp8B2L-gBx9bwkaQNkLo3TAGMjQrkXEDs4JTPVYpGNcysdXrEvWtnFRs5aBY71x8s0LVOLsKb-OifKbOZBGy4rj5WqXRMMo3sjxYNmmMiPhjUUTq8xowlMD8tK8-VB0jM");'></div>
+<div class="p-6 md:p-8 flex-1">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                            3. ICED AMERICANO 💧
+                                        </h2>
+<p class="text-primary font-medium mt-1 italic">Para los que buscan un café espresso intenso y refrescante.</p>
+</div>
+<span class="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs font-bold rounded-full">BÁSICO</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="step-badge">1</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Ice (Hielo)</p>
+<p class="text-sm text-slate-500">Llenar el vaso completamente.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="step-badge">2</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Espresso shots</p>
+<div class="flex gap-3 mt-1">
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">M: 3 / 195ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">L: 4 / 260ml</span>
+<span class="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">XL: 5 / 325ml</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="step-badge">3</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Cold Water (Agua Fría)</p>
+<p class="text-sm text-slate-500">Cold Water to 3rd line (Llenar hasta la 3ra línea).</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-primary/10">
+<p class="text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-500 text-lg">add_circle</span>
+                                            Opcional: <span class="font-normal text-slate-600 dark:text-slate-400">Milk splash (30 / 60 / 90ml)</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Botón Go Back - Pegar justo después de <main> -->
+<div class="max-w-6xl w-full mx-auto px-6 lg:px-40 mb-6">
+    <a href="index.html" 
+       class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary font-medium py-2.5 px-5 rounded-xl transition-all duration-300 group border border-primary/20">
+        <span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+        <span class="text-sm font-bold">GO BACK</span>
+    </a>
+</div>
+<footer class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-primary/10 flex justify-around p-3 z-50">
+<button class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</button>
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-bold">Recetas</span>
+</button>
+<button class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-medium">Orden</span>
+</button>
+<button class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</footer>
+</div>
+</div>
+
+</body></html>

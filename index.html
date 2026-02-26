@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Bean & Brew · category hub</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13ec5b",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102216",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .category-card:hover .card-overlay { background-color: rgba(19, 236, 91, 0.15); }
+    /* make entire card clickable while preserving link tap area */
+    .category-card a.absolute-link { position: absolute; inset: 0; z-index: 5; }
+    .category-card .content-zone { position: relative; z-index: 10; pointer-events: none; }
+    .category-card .content-zone button, .category-card .content-zone a:not(.absolute-link) { pointer-events: auto; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+  <!-- layout container -->
+  <div class="layout-container flex h-full grow flex-col">
+    <!-- header (identical to index, but with correct links) -->
+    <header class="flex items-center justify-between border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-10 py-4 sticky top-0 z-50">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center justify-center p-2 rounded-lg bg-primary/10 text-primary">
+          <span class="material-symbols-outlined text-2xl">coffee_maker</span>
+        </div>
+        <h2 class="text-slate-900 dark:text-slate-100 text-xl font-extrabold tracking-tight">Bean & Brew</h2>
+      </div>
+      <nav class="flex items-center gap-8">
+        <a class="text-slate-700 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors uppercase tracking-wider" href="index.html">Home</a>
+        <a class="text-primary text-sm font-bold uppercase tracking-wider border-b-2 border-primary pb-1" href="index.html">Menu</a>
+        <a class="text-slate-700 dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors uppercase tracking-wider" href="#">Locations</a>
+        <div class="bg-primary/20 p-1 rounded-full border border-primary/30">
+          <img alt="Profile" class="aspect-square rounded-full size-8 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrRHv1Id9jETXZnyxqvpAGatzsLIC6OB9tPM0bwQlXjD_se8rVI_YWZ7pLzfKYDL5Xq0ue1QIzDJBJ2adCPjWiPy7gnCBpy4pOMxnzBOhMnLgfKOdptJCD6_u3yYDZD1Bl2HxJsBpULj3-QdA38ng_Am_J9eLGzrHce7QqKPHVaJrNZkAKwarwJrgyXjzuBaebb19FtAI8xJ3wMwdeT-XKtNQyMnUNwmZiX_y-_S-ufVmGC5wD6GkRDPP6K4TdGQnlh2qIrnIPy8"/>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex flex-1 flex-col items-center py-12 px-6 lg:px-40">
+      <div class="max-w-5xl w-full">
+        <!-- title + intro -->
+        <div class="flex flex-col gap-4 mb-12 text-center items-center">
+          <span class="px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">Premium Selection</span>
+          <h1 class="text-slate-900 dark:text-slate-100 text-5xl font-black leading-tight tracking-tight">Explore Our Menu</h1>
+          <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl font-medium">
+            From energizing espresso blends to refreshing caffeine‑free treats, discover the perfect cup for every moment.
+          </p>
+        </div>
+
+        <!-- grid of 4 categories – each card is fully clickable via an absolute <a> -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+
+          <!-- 1) Iced Coffee (link to icedNoCooffeeSubCategories.html) -->
+          <div class="category-card group relative overflow-hidden rounded-xl bg-slate-200 aspect-[16/10] cursor-pointer shadow-xl transition-all hover:-translate-y-1">
+            <!-- absolute link (opens icedNoCooffeeSubCategories) -->
+            <a href="icedNoCooffeeSubCategories.html" target="_self" rel="noopener" class="absolute-link" title="Iced Coffee detailed recipes"></a>
+            <!-- background image -->
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3gqmBDNPNRIUJ7QFZV-_CAB300jRHxnKnVcnVQEsNoV2nklUv7-pSIFE8PzxGgBO3qb5nNaojsqd6duAUxaXSfXBqdXqj1ddoIZKmhc2ixfv1rPbqBwPyz7YKzRSazMjKWHFkaS0K1qldcmEjfPvlp2f-QoY4CgS0B2kJUNoAypLtLaArgAbQOWDgPBtWY95iAWM3fGVr7QWy2kbBwtduleVhIdDCR8Z-_WsSDZcVxIUbK-4OmACbKU_nw2Knil1zYx5gTlAYCpk");'></div>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-colors duration-300"></div>
+            <!-- content zone (pointer-events: none but buttons/links inside can be re-enabled) -->
+            <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end content-zone">
+              <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">Classic Brews</span>
+                <h3 class="text-white text-3xl font-black tracking-tight mb-4">Iced Coffee</h3>
+                <!-- visible button still works as extra click target (link inside) but absolute a already covers all -->
+                <a href="icedNoCooffeeSubCategories.html" target="_self" class="inline-block bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-bold py-2 px-4 rounded-full border border-white/20 transition-all" onclick="event.stopPropagation()">
+                  <span class="flex items-center gap-2">VER 12 RECETAS</span>
+                </a>
+              </div>
+              <div class="bg-primary text-slate-900 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0 shadow-lg">
+                <span class="material-symbols-outlined font-bold">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2) Iced No Coffee (link to icedNoCooffee.html) -->
+          <div class="category-card group relative overflow-hidden rounded-xl bg-slate-200 aspect-[16/10] cursor-pointer shadow-xl transition-all hover:-translate-y-1">
+            <a href="icedNoCooffee.html" target="_self" rel="noopener" class="absolute-link" title="Iced No Coffee"></a>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClQza2fhdtUGjQuRcz1BtShtpqdqEhCgwz_4LBZWchNTOVOLspj9w_w3MFOZTH0I9CjI6QWkD2YjQId7xm5NWGv9Y5oCAtklAlxUqULD_l4BIhecqF2OBJL1xc8jrkdL-K84CpAyVp4jnSYOxs6_VukoIaWkXYtzPtTltI--m147tnJJbLU4euN2DPxDoXmI9XbNTPkbkOfzdhKr4-uaW1Po4ZLf7spppPR7klRB7miLh1jHj8u34uyvuttqKcmRnT1xTsmNT4T78");'></div>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-colors duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end content-zone">
+              <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">Caffeine Free</span>
+                <h3 class="text-white text-3xl font-black tracking-tight mb-4">Iced No Coffee</h3>
+                <a href="icedNoCooffee.html" target="_self" class="inline-block bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-bold py-2 px-4 rounded-full border border-white/20 transition-all" onclick="event.stopPropagation()">
+                  <span class="flex items-center gap-2">VER 5 RECETAS</span>
+                </a>
+              </div>
+              <div class="bg-primary text-slate-900 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0 shadow-lg">
+                <span class="material-symbols-outlined font-bold">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3) Frozen Coffee (link to cooffeeCategorySection.html)  (note: original file name cooffeeCategorySection.html) -->
+          <div class="category-card group relative overflow-hidden rounded-xl bg-slate-200 aspect-[16/10] cursor-pointer shadow-xl transition-all hover:-translate-y-1">
+            <a href="cooffeeCategorySection.html" target="_self" rel="noopener" class="absolute-link" title="Frozen Coffee recipes"></a>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_d2Fmc37DkgGBgJt8KlHh4UgBWAgtKRlJ2vIaNwwh13ZLYa9oyU1QfkmGdM_3dw_lzLpXeuxWpoLRE9gZGiUXEMY5x600NXYx8wOLxBiTWB8x2soyTCRIQLk4C_SpHawYrBWnujOj-3QJPkpIHP6heM1awc81b2giJ41D3zpf3QUBdHtBemopdXSpk24vO7K9wYQvS6k6zxBHEGoIhcin_AtLouSus30w3xcY5X7kUiVYkRKZ-hr1pRK4ho6d9ixIDQo1dxjfFyA");'></div>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-colors duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end content-zone">
+              <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">Blended Blizzards</span>
+                <h3 class="text-white text-3xl font-black tracking-tight mb-4">Frozen Coffee</h3>
+                <a href="cooffeeCategorySection.html" target="_self" class="inline-block bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-bold py-2 px-4 rounded-full border border-white/20 transition-all" onclick="event.stopPropagation()">
+                  <span class="flex items-center gap-2">VER 8 RECETAS</span>
+                </a>
+              </div>
+              <div class="bg-primary text-slate-900 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0 shadow-lg">
+                <span class="material-symbols-outlined font-bold">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4) Frozen No Coffee (link to frozenNoCooffee.html) -->
+          <div class="category-card group relative overflow-hidden rounded-xl bg-slate-200 aspect-[16/10] cursor-pointer shadow-xl transition-all hover:-translate-y-1">
+            <a href="frozenNoCooffee.html" target="_self" rel="noopener" class="absolute-link" title="Frozen No Coffee"></a>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAB-qb58M16xF4fUM47kpIMEbvGDljHD2AGj00tIEyOtXXN3DfkDmL9F1O7NarFk2hoLJu6T3W3rB7IaSuVsZ-dkncRWrvEDnV2MG0tu4onGfaxpD47f7_yU29mFU2jdvMUgS0-872IUfKWKF-K1ElIP6yuZXBbwVYuAqzHHbrwuFFCcwVze1TDviJOzIthiOW1QtadEXdF-x5JRKV7pqrj0TmoPEerK0NjTPklv4QuH0KRiD6xmRw9lbaXja3_deBWVVXHADX31V0");'></div>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-colors duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end content-zone">
+              <div>
+                <span class="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">Fruit & Creams</span>
+                <h3 class="text-white text-3xl font-black tracking-tight mb-4">Frozen No Coffee</h3>
+                <a href="frozenNoCooffee.html" target="_self" class="inline-block bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-bold py-2 px-4 rounded-full border border-white/20 transition-all" onclick="event.stopPropagation()">
+                  <span class="flex items-center gap-2">VER 10 RECETAS</span>
+                </a>
+              </div>
+              <div class="bg-primary text-slate-900 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0 shadow-lg">
+                <span class="material-symbols-outlined font-bold">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- note: original index also included extra sections? we keep design consistent -->
+        <div class="mt-12 text-sm text-slate-500 text-center border-t border-primary/5 pt-8">
+          <p class="flex items-center justify-center gap-2"><span class="material-symbols-outlined text-primary">link</span> Cada tarjeta te llevará a la guía de preparación correspondiente (se abre en nueva pestaña).</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- footer (same as index) -->
+    <footer class="mt-auto flex flex-col gap-8 px-10 py-12 border-t border-primary/10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center p-1.5 rounded-lg bg-primary/10 text-primary">
+            <span class="material-symbols-outlined text-lg">coffee_maker</span>
+          </div>
+          <span class="text-slate-900 dark:text-slate-100 font-bold tracking-tight">Bean & Brew</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-10">
+          <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Privacy Policy</a>
+          <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Terms of Service</a>
+          <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Sustainability</a>
+          <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Contact Us</a>
+        </div>
+        <div class="flex items-center gap-5">
+          <a class="text-slate-400 hover:text-primary transition-colors" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+          <a class="text-slate-400 hover:text-primary transition-colors" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+        </div>
+      </div>
+      <div class="text-center pt-8 border-t border-primary/5">
+        <p class="text-slate-400 text-xs font-semibold uppercase tracking-[0.2em]">© 2024 Bean & Brew Artisanal Coffee. Crafted for connoisseurs.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+<!-- ensure that internal links point to existing files: 
+     icedNoCooffeeSubCategories.html, icedNoCooffee.html, cooffeeCategorySection.html, frozenNoCooffee.html 
+     they must be in the same folder for this hub to work. -->
+</body>
+</html>
